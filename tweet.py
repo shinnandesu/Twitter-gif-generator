@@ -4,7 +4,7 @@
 import config
 from requests_oauthlib import OAuth1Session
 import json
-
+import sys
 import urllib.error
 import urllib.request
 import os
@@ -79,7 +79,8 @@ def crop_image(infile, width=None, height=None):
     
     
 if __name__ == '__main__':
-    screen_name = "juri_nuance"
+    args = sys.argv
+    screen_name = args[0]
     new_dir_path = 'data/'+screen_name
     os.mkdir(new_dir_path)
     get_all_tweet(screen_name)
